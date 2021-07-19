@@ -31,13 +31,9 @@ bundle install
 bundle exec rake db:migrate db:seed
 ```
 
-You can view the models in the `app/models` directory, and the migrations in the
-`db/migrate` folder. Here's what the relationships will look like in our ERD:
-
-![Game Reviews ERD](https://curriculum-content.s3.amazonaws.com/phase-3/active-record-associations-many-to-many/games-reviews-users-erd.png)
-
-With that set up, let's work on getting Sinatra and Active Record working
-together!
+We'll be working with the models and migrations more in the next lesson. For
+now, let's review the project's file structure and talk about how our code is
+organized.
 
 ## Separation of Concerns with File Structure
 
