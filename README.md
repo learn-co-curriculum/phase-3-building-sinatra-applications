@@ -31,6 +31,10 @@ bundle install
 bundle exec rake db:migrate db:seed
 ```
 
+> **Note**: Running `rake db:migrate db:seed` on one line will run the
+> migrations first, then the seed file. It's a nice way to save a few
+> keystrokes!
+
 We'll be working with the models and migrations more in the next lesson. For
 now, let's review the project's file structure and talk about how our code is
 organized.
@@ -48,10 +52,10 @@ within that folder, has a clearly defined responsibility. Let's review:
   requiring files/gems, and establishing a connection to the database.
 - `db/migrate`: Our Active Record migrations. Responsible for creating and
   altering the structure of the database (making new tables, adding columns to
-  existing tables, etc.)
+  existing tables, etc).
 - `db/seed.rb`: Lets us easily add sample data to the database.
 - `spec`: Our RSpec tests.
-- `Gemfile`: Lists all the gems our application depends on
+- `Gemfile`: Lists all the gems our application depends on.
 - `Rakefile`: Code for common tasks that we can easily run from the command
   line, like `rake console`.
 
@@ -104,7 +108,8 @@ end
 
 Since our `config/environment.rb` file does the work of `require`-ing all our
 gems as well as all the files in the `app` folder, we can just require the
-`config/environment.rb` file in our `config.ru` file:
+`config/environment.rb` file in our `config.ru` file and then run our
+`ApplicationController`:
 
 ```rb
 # config.ru
@@ -156,12 +161,12 @@ any time we make a change to the code for our controller, we need to:
 - Stop the server with `control + c`
 - Re-start the server with `rackup config.ru`
 
-We can simplify this process by using the [rerun][] Ruby gem, which watches for
-changes to our file system and reloads the program (similar to webpack
+We can simplify this process by using the [Rerun][rerun] Ruby gem, which watches
+for changes to our file system and reloads the program (similar to webpack
 development server's hot reload feature when working with React applications).
 
-The `rerun` gem is already included in the Gemfile, so we can try it out. To
-run our server in development mode using `rerun`, run this command:
+The Rerun gem is already included in the Gemfile, so we can try it out. To
+run our server in development mode using Rerun, run this command:
 
 ```sh
 bundle exec rerun -b 'rackup config.ru'
@@ -170,9 +175,11 @@ bundle exec rerun -b 'rackup config.ru'
 Then make a request to [http://localhost:9292/](http://localhost:9292/) in the
 browser. Just like before, we'll still see the "Hello World!" message. But now
 we can make changes to the application and simply refresh the page in the
-browser to see those changes! Try updating the `ApplicationController` and
-change the HTML being returned from the `GET /` route. Then refresh the page in
-the browser. You should see your new code reflected in the updated response.
+browser to see those changes, without having to manually restart the server!
+
+Try updating the `ApplicationController` and change the HTML being returned from
+the `GET /` route. Then refresh the page in the browser. You should see your new
+code reflected in the updated response.
 
 > **Note**: It can take a few moments for `rerun` to fully restart the server.
 > Keep an eye on the terminal output to see when the server has been
