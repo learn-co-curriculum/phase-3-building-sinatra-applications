@@ -26,9 +26,9 @@ Active Record lesson on creating a many-to-many association. For the Active
 Record side of things, we have the models, migrations and seed data all set up.
 Run these commands to install the dependencies and set up the database:
 
-```sh
-bundle install
-bundle exec rake db:migrate db:seed
+```console
+$ bundle install
+$ bundle exec rake db:migrate db:seed
 ```
 
 > **Note**: Running `rake db:migrate db:seed` on one line will run the
@@ -124,8 +124,8 @@ having one file grow out of control!
 Try running the server with this updated file structure and make sure your
 server still works:
 
-```sh
-rackup config.ru
+```console
+$ rackup config.ru
 ```
 
 You should still be able to visit
@@ -168,8 +168,8 @@ development server's hot reload feature when working with React applications).
 The Rerun gem is already included in the Gemfile, so we can try it out. To
 run our server in development mode using Rerun, run this command:
 
-```sh
-bundle exec rerun -b 'rackup config.ru'
+```console
+$ bundle exec rerun -b 'rackup config.ru'
 ```
 
 Then make a request to [http://localhost:9292/](http://localhost:9292/) in the
@@ -197,8 +197,8 @@ end
 
 Now we can run the server with this Rake command:
 
-```sh
-bundle exec rake server
+```console
+$ bundle exec rake server
 ```
 
 ## Conclusion
