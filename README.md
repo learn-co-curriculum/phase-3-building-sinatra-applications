@@ -60,11 +60,11 @@ within that folder, has a clearly defined responsibility. Let's review:
   line, like `rake console`.
 
 By organizing our code this way and clearly separating out the different parts
-of their application, it becomes much easier for us and other developers to know
-where to add new code when it's time to build or modify our app's features.
+of the application, it becomes much easier for us and other developers to know
+where to add new code when it's time to build onto or modify our app.
 
 > **Note**: This file structure also closely mirrors the structure of a typical
-> Rails application, as you'll see next phase!
+> Rails application, as you'll see in the next phase!
 
 In the last lesson on Sinatra, we also saw some new code for writing a web
 server. How does that code fit in with our current file structure? Let's break
@@ -137,9 +137,9 @@ the server.
 > The reason for using a `controllers` folder and a class named with
 > `Controller` at the end is because of a software pattern known as
 > Model-View-Controller, or MVC. We'll cover MVC in more depth in the next
-> phase, but essentially, it's a common pattern among developers for web
-> applications specifically that helps with the separation of concerns of
-> different parts of the application:
+> phase, but essentially, it's a common pattern used by web app developers
+> that helps with the separation of concerns of different parts of the
+> application:
 >
 > - Models: responsible for working with the database
 > - Views: responsible for what the user sees on the webpage (typically, views are
@@ -203,7 +203,13 @@ $ bundle exec rake server
 
 ## Conclusion
 
-We've now built out the core structure of our Sinatra applications. We'll be introducing one or two more new gems in this section, but for the most part, this setup is what you'll use for the rest of this phase. The file structure you've seen here is also similar to what you'll use in the next phase with Rails, so by building it up gradually over the course of this phase, you've hopefully gained familiarity with many of these common conventions.
+We've now built out the core structure of our Sinatra applications. We'll
+be introducing one or two more new gems in this section, but for the most
+part, this setup is what you'll use for the rest of this phase. The file
+structure you've seen here is also similar to what you'll use in the next
+phase with Rails, so by building it up gradually over the course of this
+phase, you've hopefully gained familiarity with many of these common
+conventions.
 
 ## Resources
 
