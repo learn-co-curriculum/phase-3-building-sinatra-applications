@@ -53,7 +53,7 @@ within that folder, has a clearly defined responsibility. Let's review:
 - `db/migrate`: Our Active Record migrations. Responsible for creating and
   altering the structure of the database (making new tables, adding columns to
   existing tables, etc).
-- `db/seed.rb`: Lets us easily add sample data to the database.
+- `db/seeds.rb`: Lets us easily add sample data to the database.
 - `spec`: Our RSpec tests.
 - `Gemfile`: Lists all the gems our application depends on.
 - `Rakefile`: Code for common tasks that we can easily run from the command
