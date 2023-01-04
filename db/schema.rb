@@ -10,30 +10,25 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2021_07_19_142825) do
+ActiveRecord::Schema.define(version: 2023_01_02_215522) do
 
-  create_table "games", force: :cascade do |t|
-    t.string "title"
-    t.string "genre"
-    t.string "platform"
-    t.integer "price"
-    t.datetime "created_at", precision: 6, null: false
-    t.datetime "updated_at", precision: 6, null: false
-  end
-
-  create_table "reviews", force: :cascade do |t|
-    t.integer "score"
-    t.string "comment"
-    t.integer "game_id"
-    t.datetime "created_at", precision: 6, null: false
-    t.datetime "updated_at", precision: 6, null: false
-    t.integer "user_id"
-  end
-
-  create_table "users", force: :cascade do |t|
+  create_table "exercises", force: :cascade do |t|
     t.string "name"
-    t.datetime "created_at", precision: 6, null: false
-    t.datetime "updated_at", precision: 6, null: false
+    t.string "muscle"
+    t.integer "exercise_id"
+    t.integer "workout_id"
+    t.integer "rep_and_set_id"
+  end
+
+  create_table "rep_and_sets", force: :cascade do |t|
+    t.integer "reps"
+    t.integer "sets"
+    t.integer "rep_and_set_id"
+  end
+
+  create_table "workouts", force: :cascade do |t|
+    t.string "name"
+    t.integer "workout_id"
   end
 
 end

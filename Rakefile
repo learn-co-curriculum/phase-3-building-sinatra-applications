@@ -9,3 +9,12 @@ task :console do
   # Open a Pry session
   Pry.start
 end
+
+desc "Start Server"
+task :server do
+  if ActiveRecord::Base.connection.migration_context
+    puts "migrations are pending"
+  end
+
+  exec "bundle exec rerun -b 'rackup config.ru'"
+end

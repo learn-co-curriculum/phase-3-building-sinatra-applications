@@ -1,0 +1,13 @@
+body {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.workout-page {
+  margin-top: 50px;
+  width: 800px;
+  height: 600px;
+  border: solid 2px black;
+  border-radius: 10px;
+}
