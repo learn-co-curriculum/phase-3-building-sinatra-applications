@@ -4,7 +4,15 @@ class ApplicationController < Sinatra::Base
     set :default_content_type, 'application/json'
 
     get '/' do
-        'Hello World'
+        exercises = Exercise.all
+        workouts = Workout.all
+        reps_and_sets = RepAndSet.all
+
+        {
+            exercises: exercises,
+            workouts: workouts,
+            reps_and_sets: reps_and_sets
+        }.to_json
     end
 
     get '/exercise' do
@@ -44,40 +52,43 @@ class ApplicationController < Sinatra::Base
             workout_id: params[:workout_id],
             rep_and_set_id: params[:rep_and_set_id]
         )
+        exercise.to_json
     end
 
     post '/workout' do
-        workout = Workout.create (
+        workout = Workout.create(
             name: params[:name],
             workout_id: params[:workout_id]
         )
+        workout.to_json
     end
 
     post '/repsandsets' do
         rep_and_set = RepAndSet.create(
-            reps: params[:reps]
-            sets: params[:sets]
+            reps: params[:reps],
+            sets: params[:sets],
             rep_and_set_id: params[:rep_and_set_id]
         )
+        rep_and_set.to_json
     end
 
     patch '/exercise/:id' do
         exercise = Exercise.find(params[:id])
-        exercise.update (
+        exercise.update(
             name: params[:name]
         )
     end
 
     patch '/workout/:id' do
-        workout = Exercise.find(params[:id])
-        workout.update (
+        workout = Workout.find(params[:id])
+        workout.update(
             name: params[:name]
         )
     end 
 
     patch '/repsandsets/:id' do
-        rep_and_set: RepAndSet.find(params[:id])
-        rep_and_set.update (
+        rep_and_set = RepAndSet.find(params[:id])
+        rep_and_set.update(
             reps: params[:reps],
             sets: params[:sets]
         )
