@@ -10,14 +10,27 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2023_01_02_215522) do
+ActiveRecord::Schema.define(version: 2023_01_07_023827) do
 
   create_table "exercises", force: :cascade do |t|
     t.string "name"
     t.string "muscle"
-    t.integer "exercise_id"
+    t.integer "reps"
+    t.integer "sets"
     t.integer "workout_id"
-    t.integer "rep_and_set_id"
+  end
+
+  create_table "foods", force: :cascade do |t|
+    t.integer "calories"
+    t.integer "protein"
+    t.integer "carbohydrates"
+    t.integer "fats"
+  end
+
+  create_table "progresses", force: :cascade do |t|
+    t.date "date"
+    t.string "name"
+    t.text "reps_sets_weights", default: "{}", null: false
   end
 
   create_table "rep_and_sets", force: :cascade do |t|
@@ -26,9 +39,16 @@ ActiveRecord::Schema.define(version: 2023_01_02_215522) do
     t.integer "rep_and_set_id"
   end
 
+  create_table "total_nutrition", force: :cascade do |t|
+    t.integer "total_calories"
+    t.integer "total_protein"
+    t.integer "total_carbohydrates"
+    t.integer "total_fats"
+  end
+
   create_table "workouts", force: :cascade do |t|
     t.string "name"
-    t.integer "workout_id"
+    t.boolean "completed"
   end
 
 end

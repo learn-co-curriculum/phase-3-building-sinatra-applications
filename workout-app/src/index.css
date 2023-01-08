@@ -12,16 +12,11 @@ body {
   width: 100%;
   height: 100%;
   
-  background-color: #808080;
-  /* Add a glossy effect to the color using the "gloss" and "highlight" layers */
-  background: linear-gradient(to bottom, #808080, #999999),
-    linear-gradient(to bottom, transparent 70%, rgba(255, 255, 255, 0.5) 100%),
-    linear-gradient(to bottom, transparent 50%, rgba(255, 255, 255, 0.3) 100%);
-  /* Add some depth to the color using the "shadow" layer */
-  background: linear-gradient(to bottom, #808080, #999999),
-    linear-gradient(to bottom, transparent 70%, rgba(255, 255, 255, 0.5) 100%),
-    linear-gradient(to bottom, transparent 50%, rgba(255, 255, 255, 0.3) 100%),
-    linear-gradient(to bottom, transparent 50%, rgba(0, 0, 0, 0.2) 100%);
+  background-color: #EAEFF2;
+  background: linear-gradient(to bottom, #EAEFF2, #F6F9FC),
+  linear-gradient(to bottom, transparent 70%, rgba(255, 255, 255, 0.5) 100%),
+  linear-gradient(to bottom, transparent 50%, rgba(255, 255, 255, 0.3) 100%),
+  linear-gradient(to bottom, transparent 50%, rgba(0, 0, 0, 0.2) 100%);
 }
 
 .workout-page {
@@ -32,28 +27,61 @@ body {
   border-radius: 10px;
 }
 
-.hero-image {
-  height: 100vh;
-  width: 100vw;
-  position: relative;
-  background-size: cover;
-  background-position: cover;
-  background-position: 50% 50%;
-  background-image: url("https://images.unsplash.com/photo-1583454110551-21f2fa2afe61?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1170&q=80");
-  padding-top: 0;
-}
-
 .nav-bar {
-  width: 100vw;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
 }
 
 .nav-btn {
-  margin-left: 30px;
-  color: white;
+  margin-top: 50px;
+  color: #FFFFFF;
+  font-family: "Hind", sans-serif;
+  text-decoration: none;
+  letter-spacing: 2px;
+  font-weight: 600;
+  font-stretch: condensed;
+  font-size: 16px;
+  padding: 20px;
+
+  border: 1px solid #30B2DB;
+  border-radius: 30px;
+  background-color: #30B2DB;
+
+  /* Figure out how to make a gradient for your buttons if you have time */
+  background: linear-gradient(to middle, #30B2DB, #ffffff);
+}
+
+.exercise-btn {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-top: 15px;
+  margin-left: auto;
+  margin-right: 5px;
+  text-align: center;
+  border-radius: 15px;
+  background-color: #30B2DB;
+  width: 50px;
+  height: 25px;
+
+  box-shadow: 0px 2px 4px 0px rgba(0, 0, 0, 0.2);
+}
+.btn-text {
+  font-family: "Hind", sans-serif;
+  font-size: 12px;
+  color: #FFFFFF;
+}
+
+.today-workout {
+  margin-left: auto;
+  margin-right: auto;
 }
 
 .side-bar {
-  position: fixed;
+  /* position: fixed; */
+  width: 900px;
+  height: 530px;
   top: 0;
   left: 0;
   bottom: 0;
@@ -62,15 +90,14 @@ body {
   z-index: 1;
   border: 1px solid black;
   border-radius: 5px;
-  padding-top: 20px;
-  padding-bottom: 20px;
-  margin-top: 200px;
-  margin-bottom: 200px;
-  margin-left: 25px;
 
   box-shadow: 0px 4px 8px 0px rgba(0, 0, 0, 0.2);
 }
 
+.header-font {
+  font-family: "Monteserrat", sans-serif;
+  color: #FF8616;
+}
 
 .side-bar .side-bar-content {
   padding: 20px;
@@ -78,4 +105,106 @@ body {
 
 .main-content {
   margin-left: 200px;
+}
+
+.parent-page-content {
+  display: flex;
+  /* flex-wrap: wrap; */
+  justify-content: center;
+  align-items: center;
+}
+
+.page-content {
+  display: flex;
+  flex-direction: column;
+  width: 900px;
+  height: auto;
+  border: 1px solid black;
+  border-radius: 5px;
+  margin-left: 50px;
+
+  box-shadow: 0px 4px 8px 0px rgba(0, 0, 0, 0.2);
+}
+
+.list-items {
+  display: flex;
+  flex-direction: row;
+  border: none;
+  width: auto;
+  box-shadow: 0px 2px 4px 0px rgba(0, 0, 0, 0.2);
+}
+
+.list-exercise {
+  display: flex;
+  margin-left: 10px;
+}
+
+.update-list-items {
+  display: flex;
+  flex-direction: row;
+  list-style: none;
+}
+
+.inputs {
+  border: 1px solid black;
+  border-radius: 5px;
+  height: 25px;
+  width: 50px;
+  margin-top: auto;
+  margin-bottom: auto;
+  margin-left: auto;
+  margin-right: 10px;
+}
+
+.hidden {
+  display: none;
+}
+
+.submit-btn {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-top: 15px;
+  margin-left: auto;
+  margin-right: auto;
+  text-align: center;
+  border: none;
+  border-radius: 15px;
+  background-color: #FF8616;
+  margin-bottom: 10px;
+  width: 75px;
+  height: 35px;
+
+  box-shadow: 0px 2px 4px 0px rgba(0, 0, 0, 0.2);
+
+  font-family: "Hind", sans-serif;
+  font-size: 12px;
+  color: #FFFFFF;
+}
+
+.input-title-reps {
+  margin-left: auto;
+  margin-right: -425px;
+
+}
+
+.input-title-weight {
+  margin-left: auto;
+  margin-right: -425px;
+}
+
+.input-title-sets {
+  margin-left: 10px;
+}
+
+
+.inputs-weight {
+  border: 1px solid black;
+  border-radius: 5px;
+  height: 25px;
+  width: 100px;
+  margin-top: auto;
+  margin-bottom: auto;
+  margin-left: auto;
+  margin-right: -350px;
 }

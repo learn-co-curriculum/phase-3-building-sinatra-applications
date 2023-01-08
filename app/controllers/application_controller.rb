@@ -32,18 +32,65 @@ class ApplicationController < Sinatra::Base
 
     get '/exercise/:id' do
         exercise = Exercise.find(params[:id])
-        exercise.to_json
+        exercise_with_reps_and_sets = exercise.rep_and_set
+        {
+        exercise: exercise,
+        reps: exercise_with_reps_and_sets.sets,
+        sets: exercise_with_reps_and_sets.reps
+        }.to_json
     end
 
     get '/workout/:id' do
         workout = Workout.find(params[:id])
-        workout.to_json
+        workouts_and_exercises = Workout.find(params[:id]).exercises
+        {
+            workout: workout,
+            exercises: workouts_and_exercises
+        }.to_json
+
     end
 
     get '/repsandsets/:id' do
         rep_and_set = RepAndSet.find(params[:id])
         rep_and_set.to_json
     end
+
+    get '/progress' do
+        progress = Progress.all
+        progress.to_json
+    end
+
+    date = Date.today
+    formatted_date = date.strftime("%Y-%m-%d")
+
+    post "/progress/#{formatted_date}" do
+        rep_progress = {}
+        params.each do |key,value|
+            if key.start_with?("reps")
+                rep_progress[key] = value
+            end
+        end
+
+        weight_progress = {}
+        params.each do |key,value|
+            if key.start_with?("weights")
+                weight_progress[key] = value
+            end
+        end
+
+        date = Date.parse(params[:date])
+
+        progress = Progress.create(
+            date: date,
+            name: params[:name],
+            reps_sets_weights: {
+                sets: params[:sets],
+                reps: rep_progress,
+                weights: weight_progress
+            }
+        )
+    end
+
 
     post '/exercise' do
         exercise = Exercise.create(
