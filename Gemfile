@@ -16,9 +16,11 @@ gem "sinatra-activerecord"
 # https://github.com/ruby/rake
 gem "rake"
 
+gem "puma"
+
 # Provides functionality to interact with a SQLite3 database
 # https://github.com/sparklemotion/sqlite3-ruby
-gem "sqlite3", "~> 1.4"
+gem "sqlite3", "~> 1.7"
 
 # Require all files in a folder
 # https://github.com/jarmo/require_all
