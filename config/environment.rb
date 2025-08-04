@@ -2,9 +2,12 @@
 # if our application is running locally in development, in a test environment, or in production
 ENV['RACK_ENV'] ||= "development"
 
+# Require logger explicitly for Ruby 3.3+ compatibility
+require "logger"
+
 # Require in Gems
 require 'bundler/setup'
-Bundler.require(:default, ENV['RACK_ENV'])
+Bundler.require(:default, ENV.fetch('RACK_ENV', nil))
 
 # Require in all files in 'app' directory
 require_all 'app'

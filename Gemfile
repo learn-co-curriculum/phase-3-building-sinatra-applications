@@ -24,6 +24,13 @@ gem "sqlite3", "~> 1.4"
 # https://github.com/jarmo/require_all
 gem "require_all"
 
+# Logger for Ruby 3.3+ compatibility
+gem "logger"
+
+# Web servers
+gem "puma"
+gem "webrick"
+
 # These gems will only be used when we are running the application locally
 group :development do
   # Used to generate seed data
@@ -42,6 +49,6 @@ group :test do
   gem "database_cleaner"
   gem "rspec"
   gem "rack-test", "~> 1.1"
+  gem "rspec"
+  gem "rubocop"
 end
-
-

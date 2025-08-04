@@ -5,13 +5,8 @@ require "sinatra/activerecord/rake"
 RSpec.configure do |config|
   config.include Rack::Test::Methods
 
-  # Database setup
-  if ActiveRecord::Base.connection.migration_context.needs_migration?
-    # Run migrations for test environment
-    Rake::Task["db:migrate"].execute
-  end
-
   config.before(:suite) do
+    Rake::Task["db.migrate"].execute
     DatabaseCleaner.clean_with(:truncation)
   end
 
