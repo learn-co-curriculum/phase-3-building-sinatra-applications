@@ -1,10 +1,6 @@
-# This is an _environment variable_ that is used by some of the Rake tasks to determine
-# if our application is running locally in development, in a test environment, or in production
-ENV['RACK_ENV'] ||= "development"
-
-# Require in Gems
+# config/environment.rb
 require 'bundler/setup'
-Bundler.require(:default, ENV['RACK_ENV'])
+Bundler.require
 
-# Require in all files in 'app' directory
+require 'ostruct' # avoid warning on Ruby 3.3+
 require_all 'app'
